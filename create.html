@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create</title>
+    <script>
+        function validateForm() 
+        {
+          let x = document.forms["createform"]["name"].value;
+          if (x == "") 
+          {
+            alert("Name must be filled out");
+            return false;
+          }
+          if (x<=65)
+          {
+            alert("Please Enter Only Characters");
+          }
+
+            let sal = document.forms["createform"]["sal"].value;
+            var esal = /^\d{6}$/;
+            if(sal.match(esal))
+                {
+            return true;
+                }
+            else
+                {
+                alert("salary must be 6 digits long.");
+                return false;
+                }
+                
+        }
+        console.log("hello");
+    function onnumber(input)
+    {
+      var num=/[^0-9]/gi;
+      input.value=input.value.replace(num,"");
+    }
+    function ontext(input)
+    {
+      var testcase = /[^a-zA-Z]+$/;
+      console.log(input);
+    input.value=input.value.replace(text,"");
+    }
+    </script>
+
+</head>
+
+<body>
+    <br> <br>
+    <div class="container">
+        <form ng-submit="createEntry()" name="createform" onsubmit="return validateForm()">
+            <div class="mt-3">
+                <div class="row">
+                    <div class="offset-md-1 col-md-8">
+                        <label for="id" class="form-label">ID</label>
+                        <input type="number" ng-model="id" class="form-control" required>
+                    </div>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" ng-model="name" class="form-control" id="name" name="name" maxlength="10"  required>
+                    </div>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="sal" class="form-label">salary</label>
+                        <input type="text" ng-model="sal" class="form-control" id="sal" name="sal" onkeydown="onnumber()" required>
+                    </div>
+                    <br>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="loc" class="form-label">Location</label>
+                        <input type="text" ng-model="loc" class="form-control" id="loc" name="loc" required>
+                    </div>
+                    <br>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="" class="form-label">Department</label>
+                            <select class="form-select form-select-lg" ng-model="dept" id="" required>
+                                <option selected disabled value="">Select one</option>
+                                <option value="HR">HR</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="devop">devop</option>
+                                
+                            </select>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            <div class="mt-5 d-flex justify-content-center">
+                <input type="submit" value="Create" class="btn btn-success" onclick="validate()">
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>
